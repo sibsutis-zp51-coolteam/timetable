@@ -4,6 +4,7 @@
     "require": {
         "phpdocumentor/phpdocumentor": "^2.9",
         "evert/phpdoc-md": "^0.2.0",
-        "phpdocumentor/graphviz": "^1.0"
+        "phpdocumentor/graphviz": "^1.0",
+        "sentry/sentry": "^1.6"
     }
 }
