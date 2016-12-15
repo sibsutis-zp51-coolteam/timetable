@@ -2,6 +2,8 @@
     "name": "sibsutis-zp51-coolteam/timetable",
     "description": "Command-line timetable of trains",
     "require": {
-        "phpdocumentor/phpdocumentor": "^2.9"
+        "phpdocumentor/phpdocumentor": "^2.9",
+        "evert/phpdoc-md": "^0.2.0",
+        "phpdocumentor/graphviz": "^1.0"
     }
 }

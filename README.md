@@ -12,3 +12,6 @@
 
 Васильев Евгений
 
+## Документация проекта:
+
+[web](http://sibsutis.i.nsk.ru/doc) | [markdown](https://github.com/sibsutis-zp51-coolteam/timetable-doc/blob/master/markdown/ApiIndex.md) | [repository](https://github.com/sibsutis-zp51-coolteam/timetable-doc)
