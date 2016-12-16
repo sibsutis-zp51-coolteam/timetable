@@ -22,6 +22,8 @@ class Api
      *
      * @param string $endpoint название endpoint
      * @param array $params массив параметров
+     *
+     * @return array
      */
     public function call($endpoint, $params)
     {
@@ -30,7 +32,7 @@ class Api
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADERS, [
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Authorization ' => API_KEY
         ]);
 
