@@ -1,4 +1,7 @@
 # Yet another timetable
+
+![travis build status](https://travis-ci.org/sibsutis-zp51-coolteam/timetable.svg?branch=master)
+
 Содержит в себе расписание электропоездов.
 Может работать оффлайн, обновлять кэш.
 
