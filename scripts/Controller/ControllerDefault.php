@@ -9,5 +9,3 @@ class ControllerDefault implements ControllerInterface
         echo "I'm running";
     }
 }
-
-

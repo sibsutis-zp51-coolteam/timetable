@@ -3,7 +3,7 @@
 
 require __DIR__ . '/bootstrap.php';
 
-$arguments = call_user_func(function() use ($argv) {
+$arguments = call_user_func(function () use ($argv) {
     $last = null;
     $arguments = ['controller' => 'ControllerDefault'];
 
@@ -27,4 +27,3 @@ if (!class_exists($controllerName)) {
 
 $controller = new $controllerName();
 $controller->run();
-
