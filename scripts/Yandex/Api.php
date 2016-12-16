@@ -27,14 +27,12 @@ class Api
      */
     public function call($endpoint, $params)
     {
+        $params = array_merge(['lang' => 'ru', 'format' => 'json', 'apikey' => API_KEY], $params);
         $url = self::API_URL . $endpoint . "/?" . http_build_query($params);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization ' => API_KEY
-        ]);
 
         $response = curl_exec($ch);
         $result = json_decode($response, self::JSON_AS_ARRAY);
