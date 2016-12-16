@@ -21,7 +21,7 @@ Class StationTimetable {
         }
 
         if (empty($station)) {
-            $station = "s9610189";
+            $station = "s9610189";  // Если пустой, используем станцию Новосибирск-главный
         }
 
         $api = new \Yandex\Api();
