@@ -1,6 +1,6 @@
 # Yet another timetable
 
-![travis build status](https://travis-ci.org/sibsutis-zp51-coolteam/timetable.svg?branch=master)
+![travis build status](https://travis-ci.org/sibsutis-zp51-coolteam/timetable.svg?branch=master) ![waffle badge](https://badge.waffle.io/sibsutis-zp51-coolteam/timetable.png?label=ready&title=Ready)
 
 Содержит в себе расписание электропоездов.
 Может работать оффлайн, обновлять кэш.
