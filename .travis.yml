@@ -4,5 +4,18 @@ php:
     - 5.6
     - 7.0
 
-script: find . -iname "*.php" -exec php -l {} \;
+before_script:
+    ## PHP_CodeSniffer
+    - pear install pear/PHP_CodeSniffer
+    - phpenv rehash
+    ## PHPLOC
+    - curl -o phploc.phar https://phar.phpunit.de/phploc-3.0.1.phar
+
+script:
+    ## PHPLOC
+    - php phploc.phar . --exclude vendor
+    ## PHP_CodeSniffer
+    - phpcs --report=emacs --standard=PSR2 . --ignore=vendor/*
+    ## Syntax checker (lint)
+    - find . -iname "*.php" -exec php -l {} \;
 
