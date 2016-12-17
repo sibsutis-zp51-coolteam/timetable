@@ -8,14 +8,12 @@ $arguments = call_user_func(function () use ($argv) {
     $arguments = ['controller' => 'ControllerDefault'];
 
     foreach ($argv as $argument) {
-        if (in_array($last, ['--controller'])) {
+        if (in_array($last, ['--controller', '--from', '--to', '--date'])) {
             $last = preg_replace('#--([a-z_0-9]+)#', '$1', $last);
             $arguments[$last] = $argument;
         }
-
         $last = $argument;
     }
-
     return $arguments;
 });
 
@@ -26,4 +24,4 @@ if (!class_exists($controllerName)) {
 }
 
 $controller = new $controllerName();
-$controller->run();
+$controller->run($arguments);
