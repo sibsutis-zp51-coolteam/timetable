@@ -5,7 +5,8 @@ namespace Controller;
 /**
  * Класс с расписанием станций
  */
-Class StationTimetable {
+class StationTimetable
+{
     /**
      * Класс парсит расписания поездов по станции
      *
@@ -13,15 +14,15 @@ Class StationTimetable {
      * @param string $date дата расписания
      * @return array
      */
-    public function StationTimetable ($station = null, $date = null)
+    public function stationTimetable($station = null, $date = null)
     {
-
         if (empty($date)) {
             $date = date("Y-m-d");
         }
 
         if (empty($station)) {
-            $station = "s9610189";  // Если пустой, используем станцию Новосибирск-главный
+            $station = "s9610189";
+            // Если пустой, используем станцию Новосибирск-главный
         }
 
         $api = new \Yandex\Api();
@@ -36,18 +37,18 @@ Class StationTimetable {
                 "directions" => "all"
             ];
 
-        $result = $api->call('schedule', $params);
-        $new_res = [];
-        foreach ($result['schedule'] as $key => $value) {
-            if (empty($value['departure'])) {
-                $dateTime = new \DateTime('now', new \DateTimeZone('Asia/Novosibirsk'));
-                $dateTime->modify($value['arrival']);
-                $dateTime->modify('+1 minute');
-                $timeDeparture = $dateTime->format('Y-m-d H:i:s');
-            } else {
-                $timeDeparture = $value['departure'];
-            }
-            $new_res[$key] = [
+            $result = $api->call('schedule', $params);
+            $new_res = [];
+            foreach ($result['schedule'] as $key => $value) {
+                if (empty($value['departure'])) {
+                    $dateTime = new \DateTime('now', new \DateTimeZone('Asia/Novosibirsk'));
+                    $dateTime->modify($value['arrival']);
+                    $dateTime->modify('+1 minute');
+                    $timeDeparture = $dateTime->format('Y-m-d H:i:s');
+                } else {
+                    $timeDeparture = $value['departure'];
+                }
+                $new_res[$key] = [
                 'uid' => $value['thread']['uid'],
                 'type' => $value['thread']['transport_type'],
                 'arrival' => $value['arrival'],
@@ -55,20 +56,15 @@ Class StationTimetable {
                 'number' => $value['thread']['title'],
                 'days' => $value['days'],
                 'stops' => $value['stops']
-            ];
-
-        }
-
-        return $new_res;
-
+                ];
+            }
+            return $new_res;
     }
     /**
      * Результирующий метод класса
      */
     public function run()
     {
-        var_export ($this->StationTimetable());
-
+        var_export($this->StationTimetable());
     }
-
 }

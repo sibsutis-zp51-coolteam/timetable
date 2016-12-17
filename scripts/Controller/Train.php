@@ -2,15 +2,13 @@
 
 namespace Controller;
 
-
 /**
  * K/lacc co cnucKom cTaHu,uu' c/legoBaHu9|
  */
 class Train
 {
-    public function Listing ()
+    public function listing()
     {
-
         $api = new \Yandex\Api();
 
         $params = [
@@ -25,24 +23,23 @@ class Train
         $info = $api->call('thread', $params);
 
         $result = [];
-        foreach ($info["stops"] as $station){
+        foreach ($info["stops"] as $station) {
+            print_r($station);
 
-            print_r ($station);
             $result[] = [
+
                 "arrival" => $station ['arrival'],
                 "departure" => $station ['departure'],
                 "code" => $station ['station']['code'],
                 "title" => $station ['station']['title']
             ];
-
         }
 
         return $result;
-
     }
 
-    public function run ()
+    public function run()
     {
-        var_export ($this -> Listing());
+        var_export($this->listing());
     }
 }
